@@ -1,9 +1,2 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# kb-project
-=======
 # kb_project_financial-project
->>>>>>> f652e33bacaa716f1eb8bac59bdedae1e1e549df
-=======
-
->>>>>>> 990c7df43c0ecbc46ece34370762c5a2513ae4a9
+시각장애인 과 노인분들과 같은 디지털 취약계층을 위한 금융서비스 프로젝트 
