@@ -20,8 +20,9 @@ public class MyHandshakeInterceptor implements HandshakeInterceptor { // 3 hands
 		if (httpSessionInterceptor.beforeHandshake(request, response, wsHandler, attributes)) {
 			HttpSession httpSession = (HttpSession) attributes.get("javax.servlet.http.HttpSession");
 			attributes.put("HTTP_SESSION", httpSession);
-			return true;
+ 			return true;
 		}
+		
 		else {
 			return false;
 		}

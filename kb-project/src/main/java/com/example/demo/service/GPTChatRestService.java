@@ -32,11 +32,13 @@ public class GPTChatRestService {
 						+ "만약 사용자가 예라고 하면 너는 {\"action\" : \"예\", \"name\" : \" \", \"amount\" : 0} 이렇게 답변하면 돼 "
 						+ "action에 속한 value와 비슷한 맥락은 해당 action의 value로 값을 설정해줘. 예를 들어,'응', '그래'와 같은 동의의 의미는 '예'와 동일한 의미로 이해해줘. 아니오도 똑같이 아니요, 아니도 '아니오'로 해석해줘."
 						+ "만약 'action'에 해당하지 않는 값을 입력한다면, 'action' 의 value를  'etc', name은 \" \", 'amount'는 0으로 해줘. "));
+		
 		messages.add(new ChatMessage("user", content));
 
 
 		GPTCompletionChatRequest gptCompletionChatRequest = new GPTCompletionChatRequest("gpt-3.5-turbo", messages,
 				100);
+		
 		ChatCompletionResult chatCompletion = openAiService
 				.createChatCompletion(GPTCompletionChatRequest.of(gptCompletionChatRequest));
 
@@ -44,6 +46,7 @@ public class GPTChatRestService {
 		String json = response.getMessages().get(0).getMessage();
 		GPTResponseDto gptResponseDto = new GPTResponseDto();
 		System.out.println(json);
+		
 		try {
 			ObjectMapper objectMapper = new ObjectMapper();
 			gptResponseDto = objectMapper.readValue(json, GPTResponseDto.class);

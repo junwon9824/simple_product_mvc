@@ -67,12 +67,15 @@ public class CompletionChatResponse {
     private Long totalTokens;
 
     public static Usage of(com.theokanning.openai.Usage usage) {
+    	
       return new Usage(
           usage.getPromptTokens(),
           usage.getCompletionTokens(),
           usage.getTotalTokens()
       );
+      
     }
+    
   }
 
   public static List<Message> toResponseListBy(List<ChatCompletionChoice> choices) {
@@ -91,4 +94,5 @@ public class CompletionChatResponse {
         Usage.of(result.getUsage())
     );
   }
+  
 }

@@ -54,6 +54,7 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
 	private UserState userState = UserState.INITIAL; // 현재는 초기상태
 	private User user = new User(); // HttpSession에서 가져온 user정보를 담을 객체
 
+	
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception {
 		System.out.println("연결 시도중");
@@ -61,8 +62,10 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
 		InetSocketAddress clientAddress = session.getRemoteAddress();
 		clientIp = clientAddress.getAddress().getHostAddress();
 		System.out.println("clientIp: " + clientIp);
+		
 	}
 
+	
 	@Override
 	// 실제로 서버와 통신하는
 	// handleTextMessage
@@ -139,6 +142,7 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
 								+ bookMarkUser.getBankAccount().getUser().getUsername();
 					}
 				}
+				
 				msg += " 입니다.";
 				session.sendMessage(new TextMessage(msg));
 				name = ""; // 초기화
@@ -173,6 +177,7 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
 			}
 			name = "";
 			amount = 0L;
+			
 		}
 	}
 
@@ -181,4 +186,5 @@ public class MyWebSocketHandler extends TextWebSocketHandler {
 		// 클라이언트와의 연결이 종료되었을 때 실행되는 메소드
 		System.out.println("WebSocket connection closed.");
 	}
+	
 }
