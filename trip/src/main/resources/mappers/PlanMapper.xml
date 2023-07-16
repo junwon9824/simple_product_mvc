@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.PlanMapper">
+	<resultMap id="planResultMap" type="com.example.model.Plan">
+		<id property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="description" column="description" />
+		<!-- 추가적인 매핑 -->
+		<!-- ... -->
+	</resultMap>
+
+	<select id="getAllPlans" resultMap="planResultMap">
+		SELECT * FROM plans
+	</select>
+
+	<select id="getPlanById" parameterType="int"
+		resultMap="planResultMap">
+		SELECT * FROM plans WHERE id = #{id}
+	</select>
+
+	<select id="getPlansByUserId" parameterType="int"
+		resultMap="planResultMap">
+		SELECT * FROM plans WHERE user_id = #{userId}
+	</select>
+
+	<insert id="createPlan" parameterType="com.example.model.Plan">
+		INSERT INTO plans (name, description, user_id) VALUES (#{name},
+		#{description}, #{userId})
+	</insert>
+
+	<!-- 추가적인 SQL 매핑 -->
+	<!-- ... -->
+</mapper>

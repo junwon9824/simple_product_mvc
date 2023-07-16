@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.ScheduleMapper">
+    <resultMap id="scheduleResultMap" type="com.example.model.Schedule">
+        <id property="id" column="id"/>
+        <result property="planId" column="plan_id"/>
+        <result property="date" column="date"/>
+        <result property="startTime" column="start_time"/>
+        <result property="endTime" column="end_time"/>
+        <!-- 추가적인 매핑 -->
+        <!-- ... -->
+    </resultMap>
+    
+    <select id="getAllSchedules" resultMap="scheduleResultMap">
+        SELECT * FROM schedules
+    </select>
+    
+    <select id="getScheduleById" parameterType="int" resultMap="scheduleResultMap">
+        SELECT * FROM schedules WHERE id = #{id}
+    </select>
+    
+    <select id="getSchedulesByPlanId" parameterType="int" resultMap="scheduleResultMap">
+        SELECT * FROM schedules WHERE plan_id = #{planId}
+    </select>
+    
+    <insert id="createSchedule" parameterType="com.example.model.Schedule">
+        INSERT INTO schedules (plan_id, date, start_time, end_time) VALUES (#{planId}, #{date}, #{startTime}, #{endTime})
+    </insert>
+    
+    <!-- 추가적인 SQL 매핑 -->
+    <!-- ... -->
+</mapper>
