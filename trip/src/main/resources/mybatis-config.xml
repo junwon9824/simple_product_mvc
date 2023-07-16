@@ -1,17 +1,31 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<!-- Type Aliases 설정 -->
-	<typeAliases>
-		<!-- 여기에 타입 별칭 설정 -->
-	</typeAliases>
+    <settings>
+        <setting name="logImpl" value="SLF4J" />
+    </settings>
 
-	<!-- 매퍼 파일 설정 -->
-	<mappers>
-		<mapper resource="mappers/DestinationMapper.xml" />
+    <!-- Type Aliases 설정 -->
+    <typeAliases>
+        <!-- 여기에 타입 별칭 설정 -->
+    </typeAliases>
 
-		<!-- 다른 매퍼 파일도 추가할 수 있음 -->
-	</mappers>
+    <!-- 매퍼 파일 설정 -->
+    <mappers>
+        <mapper resource="mappers/DestinationMapper.xml" />
 
-	<!-- 추가적인 설정 옵션들 -->
+        <!-- 다른 매퍼 파일도 추가할 수 있음 -->
+    </mappers>
+
+    <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="consoleAppender" />
+    </root>
+
+    <!-- 추가적인 설정 옵션들 -->
 </configuration>

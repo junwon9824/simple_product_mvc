@@ -9,21 +9,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.Destination;
+import com.example.demo.model.Plan;
 import com.example.demo.service.DestinationService;
 import com.example.demo.service.DestinationServiceImpl;
+import com.example.demo.service.PlanService;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/destinations")
-public class DestinationController {
+@RequestMapping("/plans")
+public class PlanController {
 	@Autowired
-	private DestinationService destinationService;
+	private PlanService planService;
 
 	@GetMapping
-	public ResponseEntity<List<Destination>> getAllDestinations() {
-		List<Destination> destinations = destinationService.getAllDestinations();
-		return new ResponseEntity<>(destinations, HttpStatus.OK);
+	public ResponseEntity<List<Plan>> getAllPlans() {
+		List<Plan> plans = planService.getAllPlans();
+		return new ResponseEntity<>(plans, HttpStatus.OK);
 	}
 
 	// 추가적인 메서드들

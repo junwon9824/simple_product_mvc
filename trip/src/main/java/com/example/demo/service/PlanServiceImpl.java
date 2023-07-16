@@ -6,19 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Destination;
+import com.example.demo.model.Plan;
 import com.example.demo.model.mapper.DestinationMapper;
+import com.example.demo.model.mapper.PlanMapper;
 
 @Service
-public class DestinationServiceImpl implements DestinationService {
+public class PlanServiceImpl implements PlanService {
 
 	@Autowired
-	private DestinationMapper destinationMapper;
+	private PlanMapper planMapper;
 
 	@Override
-	public List<Destination> getAllDestinations() {
-		return destinationMapper.getAllDestinations();
+	public List<Plan> getAllPlans() {
+		return planMapper.getAllPlans();
 	}
  
+
 	// 추가적인 메서드들
 	// ...
 }
