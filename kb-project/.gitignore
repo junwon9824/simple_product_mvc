@@ -34,3 +34,4 @@ build/
 
 ### api key ###
 src/main/resources/application.properties
+/.metadata/
